@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from "react-native";
+import styled, { css } from '@emotion/native'
+
+const Container = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+`;
+
+const Description = styled.Text({
+  color: 'hotpink'
+});
+
+const Image = styled.Image`
+  padding: 40px;
+`;
+
+const emotionLogo = 'https://cdn.rawgit.com/emotion-js/emotion/master/emotion.png';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Hello, React Native for Web!</Text>
-      </View>
-    );
+      <Container
+        style={css`
+          border-radius: 10px;
+        `}
+      >
+        <Description style={{ fontSize: 45, fontWeight: 'bold' }}>
+          Emotion Primitives
+        </Description>
+        <Image
+          source={{
+            uri: emotionLogo,
+            height: 150,
+            width: 150
+          }}
+        />
+      </Container>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  }
-});
